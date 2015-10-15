@@ -32,4 +32,17 @@ describe('The app', () => {
       done()
     })
   })
+
+  it('should figure out uppercase handles', (done) => {
+    agent
+    .get('/CHANCETHERAPPER')
+    .expect(200)
+    .end(function (err, res) {
+      if (err) { return done(err) }
+
+      const body = res.body
+      body.snapchat.should.equal('mynamechance')
+      done()
+    })
+  })
 })
