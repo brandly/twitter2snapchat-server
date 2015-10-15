@@ -29,5 +29,6 @@
   },
   "engines": {
     "node": ">=4.0.0"
-  }
+  },
+  "repository": "brandly/twitter2snapchat-server"
 }
