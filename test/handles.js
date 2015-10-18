@@ -1,13 +1,13 @@
 /* global describe, it */
 'use strict'
 
-const parseHandlesMap = require('../parse-handles-map')
+const Parser = require('../parse-handles-map')
 
 describe('parseHandlesMap', () => {
   let handlesMap = null
 
   it('should return an object', () => {
-    handlesMap = parseHandlesMap('./handles.txt')
+    handlesMap = Parser.parseHandlesMap('./handles.txt')
     handlesMap.should.be.an.Object
   })
 
@@ -20,5 +20,33 @@ describe('parseHandlesMap', () => {
   })
 })
 
-// TODO: enforce alphabetical order
-// TODO: enforce no trailing whitespace
+describe('handles.txt', () => {
+  let linesList = null
+
+  it('should have a list of Lines', () => {
+    linesList = Parser.getLinesFromFile('./handles.txt')
+    linesList.should.be.an.Array
+  })
+
+  it('should have a space on each line', () => {
+    linesList.forEach(line => {
+      let splitsBySpace = line.split(' ')
+      splitsBySpace.should.have.length(2)
+    })
+  })
+
+  it('should be free of trailing whitespace', () => {
+    linesList.forEach(line => {
+      line.should.equal(line.trim())
+    })
+  })
+
+  it('should be alphabetized', () => {
+    linesList.forEach((line, index) => {
+      if (index === 0) return // first item has no previous item
+
+      let previousLine = linesList[index - 1]
+      line.should.be.greaterThan(previousLine)
+    })
+  })
+})

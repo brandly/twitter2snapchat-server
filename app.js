@@ -1,7 +1,7 @@
 const express = require('express')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
-const parseHandlesMap = require('./parse-handles-map')
+const parseHandlesMap = require('./parse-handles-map').parseHandlesMap
 
 const app = express()
 module.exports = app
