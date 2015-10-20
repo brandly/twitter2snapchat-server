@@ -8,7 +8,7 @@ if you're on the list and wish you weren't, [tweet at me](https://twitter.com/ma
 
 ### contributing
 
-if someone's missing from the list, send me a pull request! each line in `handles.txt` contains a twitter handle, a space, and a corresponding snapchat handle. all characters are lowercase. no trailing whitespace.
+if someone's missing from the list, send me a pull request! each line in `handles.txt` contains a twitter handle, a space, and a corresponding snapchat handle. lines should be sorted alphabetically. all characters are lowercase. no trailing whitespace.
 
 ### development
 
